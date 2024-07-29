@@ -1,5 +1,7 @@
+const { config } = require('dotenv');
 const express = require('express')
 const mongoose = require('mongoose')
+require('dotenv/config')
 
 const app = express();
 const port = 8080
@@ -9,14 +11,15 @@ app.get('/', (req, res) =>{
     
 
 })
+
  
-app.listen(port,()=>{
-console.log(`server runing on port ${port}`)
+app.listen(process.env.PORT,()=>{
+console.log(`Connected to port ${process.env.port}`)
 })
 
 //CONNECT TO THE DATABASE
-mongoose.connect("mongodb+srv://CodeQueen:Lornajesty@cluster0.woggvkl.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",
-    // {useNewUrlParser:true}
+mongoose.connect(process.env.MONGODBLINK
+    //  {useNewUrlParser:true}
     // parsing error 
     
 ).then(
