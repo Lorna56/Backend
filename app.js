@@ -6,6 +6,11 @@ require('dotenv/config')
 const app = express();
 const port = 8080
 
+const postRoute = require('./routes/post')
+
+app.use('/posts', postRoute)
+// use - middleware
+
 app.get('/', (req, res) =>{
     console.log(res.send('xndd'))
     
