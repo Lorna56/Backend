@@ -5,7 +5,7 @@ const router = express.Router()
 //GET METHOD
 
 router.get('/posts', (req,res)=>{
-    res.send('Posta page')
+    res.send('Posts page')
 })
 
 module.exports= router
