@@ -9,15 +9,15 @@ const postSchema = new mongoose.Schema({
     }, 
 
     postNumber:{
-        type:number,
+        type:Number
 
     },
 
     postContent:{
-        type:String
+        type:String,
         required:true
     }
 
-})
+}, {timestamps:true})
 
-module.exports = mongoose.model ('posts', postsSchema)
+module.exports = mongoose.model ('posts', postSchema)

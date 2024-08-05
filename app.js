@@ -1,6 +1,7 @@
 const { config } = require('dotenv');
 const express = require('express')
 const mongoose = require('mongoose')
+const bodyParser = require('body-parser')
 require('dotenv/config')
 
 const app = express();
@@ -8,10 +9,12 @@ const port = 8080
 
 const route = require('./routes')
 
+
 // app.use('/posts', postRoute)
 // use - middleware
-
+app.use(bodyParser.json())
 app.use('/api',route)
+
 
 app.get('/', (req, res) =>{
     console.log(res.send('xndd'))
