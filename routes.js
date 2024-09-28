@@ -5,14 +5,19 @@ const Posts = require('./postSchema.js')
 // CRUD
 //GET METHOD
 
-router.get('/posts', (req,res)=>{
+// router.get('/posts', (req,res)=>
     
-    res.json(
-        {msg:'GET all posts'}
-    )
-})
+    // const onePost = await Posts.findById(req.params.postID)
+    
 
-router.get('/posts/:id', (req,res)=>{
+        
+
+
+
+router.get('/posts/:ID', async(req,res)=>{
+    try{
+        const onePost = await Posts.findById(req.params.postID)
+    }
     res.json(
         {msg:'GET a specific post'}
     )
@@ -33,6 +38,18 @@ router.post('/posts', async(req,res)=>{
     }
     
 })
+router.delete('/deletePost/:id', async(req,res)=>{
+    try{
+        const deletePost = await Posts.remove({id:req.params.id})
+
+    }
+    catch(err){
+        res.json({mesg:err})
+    }
+})
+
+/** 
+ * router.%method%()
 
 
 module.exports= router
